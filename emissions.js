@@ -10,7 +10,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(900, 900);
+  createCanvas(900, 1200);
   background(255, 0, 0);
   frameRate(10);
 }
@@ -20,12 +20,13 @@ function draw() {
   background(0);
   noStroke();
   
-  let hspacing = 150;
-  let vspacing = 50;
+  let hspacing = 300;
+  let vspacing = 75;
   
   //console.log(table.getRows().length);
   let x = 20;
   let y = 50;
+
   for (let i = 0; i < table.getRowCount(); i++) {
     let row = table.getRow(i);
     //console.log(row);
@@ -33,7 +34,7 @@ function draw() {
     //console.log(name);
     let emissions = row.getNum("Emissions");
     
-    let circleRadius = sqrt(emissions) * 10;
+    let circleRadius = sqrt(emissions) * 20;
     
     //console.loxg(emissions);
 
@@ -59,6 +60,7 @@ function draw() {
     circle(x, y, circleRadius);
 
     // rect(x + 10, y + 10, 20, 20);
+    //this is moving the circles down the line if they reach the right edge
     x += hspacing;
     if (x > width) {
       x = 20;
@@ -73,7 +75,7 @@ function draw() {
     let row = table.getRow(i);
     let name = row.getString("Building Name");
     let emissions = row.getNum("Emissions");
-    fill(0);
+    fill(255);
     text(name, x, y);
     //circle(x, y, 40);
     x += hspacing;
