@@ -5,8 +5,8 @@ let hspacing;
 let vspacing;
 
 function preload() {
-  tableC = loadTable("data/cambridge_incidents_by_year.csv", "header");
-  console.log(tableC);
+  // tableC = loadTable("data/cambridge_incidents_by_year.csv", "header");
+  // console.log(tableC);
   tableB = loadTable("data/boston_incidents_by_year.csv", "header");
   console.log(tableB);
   /* multi
@@ -15,23 +15,22 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1250, 1600);
+  createCanvas(1150, 1800);
   background(255, 0, 0);
-  frameRate(10);
-  hspacing = 150;
-  vspacing = 400;
+  // frameRate(10);
+  hspacing = 190;
+  vspacing = 250;
 }
-
 
 function draw() {
   background(0);
   noStroke();
 
   // Draw circles for data from tableC
-  drawCircles(tableC, hspacing, vspacing, 200, 200);
+  // drawCircles(tableC, hspacing, vspacing, 200, 400);
 
   // Draw circles for data from tableB
-  drawCircles(tableB, hspacing, vspacing, 1200, 200);
+  drawCircles(tableB, hspacing, vspacing, 200, 400);
   
   // console.log(table.getRows().length);
 
@@ -44,11 +43,12 @@ function draw() {
 
   circle(200, height - 200, (sqrt(100)) * 8);
   text("100 crashes", 260, height - 200);
+
 }
 
-function drawCircles(dataTable, hspacing, vspacing, x, x) {
-  x=200;
-  y=200;
+function drawCircles(dataTable, hspacing, vspacing, startX, startY) {
+  let x = startX;
+  let y=startY;
 
   for (let i = 0; i < dataTable.getRowCount(); i++) {
     let row = dataTable.getRow(i);
@@ -72,15 +72,18 @@ function drawCircles(dataTable, hspacing, vspacing, x, x) {
       fill(cc);
     }
 
+    let r = circleRadius/2
+
     // Draw the circle
     circle(x, y, circleRadius);    
 
     fill(255);
     text(year, x, y);
     fill(255)
-    circle(x+hspacing, y-vspacing, (sqrt(100))*8);
+    circle(x+r, y-r, (sqrt(100))*8);
+    
     fill(248,249,171)
-    triangle(x, y-vspacing, x+10, y-vspacing-20, x-10, y-vspacing-20, );
+    triangle(x, y-r, x+10, y-r-40, x-10, y-r-40 );
 
     x += hspacing;
 
@@ -92,7 +95,7 @@ function drawCircles(dataTable, hspacing, vspacing, x, x) {
 }
 
 function mouseClicked() {
-  let year = table.getRow(hoveredCircleIndex).getString("year");
+  let year = tableB.getRow(hoveredCircleIndex).getString("year");
   console.log(year);
   }
 
