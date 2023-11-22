@@ -1,5 +1,8 @@
 let table;
 let hoveredCircleIndex = -1; 
+let hoveredCircle;
+let showTown = false;
+
 
 function preload() {
   table = loadTable("data/open_spaces_grouped.csv", "header");
@@ -33,6 +36,7 @@ function draw() {
     let town = row.getString("TOWN_ID");
     //console.log(town);
     let acres = row.getNum("GIS_ACRES");
+    let name = row.getString("Town");
     
     let circleRadius = sqrt(acres) ;
     
@@ -49,14 +53,28 @@ function draw() {
     
     // Check if the mouse is over the circle
     let d = dist(mouseX, mouseY, x, y);
+    let name1 = ""; // Initialize name1 outside the if block
+    
     if (d < circleRadius / 2) {
       // Mouse is over the circle, highlight it
-      fill(255, 0, 0); // Change to a different color when hovered
+      fill(255, 0, 0); // Fill the circle with red
       hoveredCircleIndex = i; // Store the index of the hovered circle
+    
+      // Check if any circle is hovered
+      if (hoveredCircleIndex !== -1) {
+        name1 = table.getRow(hoveredCircleIndex).getString("Town");
+      }
     } else {
-      fill(cc);
+      fill(cc); // Fill the circle with the original color
     }
     
+    // Draw the circle
+    // ... (your circle drawing code)
+    
+    // Draw text only when the mouse is over a circle
+
+    
+
     // Draw the circle
     circle(x, y, circleRadius);
 
@@ -66,24 +84,29 @@ function draw() {
       x = 20;
       y += vspacing;
     }
+    if (name1 !== "") {
+      fill(255,0,0); // Set the text color to white
+      textStyle(BOLD);
+      text(name1, x-(circleRadius*2), y); // Adjust the position as needed
+    }
   }
   
   x = 20;
-  y = 50;
+  y = 50;                     
 
-  for (let i = 0; i < table.getRowCount(); i++) {
-    let row = table.getRow(i);
-    let town = row.getString("TOWN_ID");
-    let acres = row.getNum("GIS_ACRES");
-    fill(255);
-    text(town, x + 40, y);
-    //circle(x, y, 40);
-    x += hspacing;
-    if (x > width) {
-      x = 20;
-      y += vspacing;
-    }
-  }
+  // for (let i = 0; i < table.getRowCount(); i++) {
+  //   let row = table.getRow(i);
+  //   let name = row.getString("Town");
+  //   let acres = row.getNum("GIS_ACRES");
+  //   fill(255);
+  //   // text(name, x + 40, y);
+  //   //circle(x, y, 40);
+  //   x += hspacing;
+  //   if (x > width) {
+  //     x = 20;
+  //     y += vspacing;
+  //   }
+  // }
 
 
   fill(255);
@@ -92,8 +115,8 @@ function draw() {
 }
 
 function mouseClicked() {
-  let town = table.getRow(hoveredCircleIndex).getString("TOWN_ID");
-  console.log(town);
+  let name1 = table.getRow(hoveredCircleIndex).getString("Town");
+  console.log(name1);
   
   // You can handle mouse click events here if needed
   
