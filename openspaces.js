@@ -24,7 +24,7 @@ function draw() {
   noStroke();
   
   let hspacing = 150;
-  let vspacing = 50;
+  let vspacing = 70;
   
 //   console.log(table.getRows().length);
   let x = 20;
