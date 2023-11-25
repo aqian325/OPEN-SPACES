@@ -1,7 +1,7 @@
 body {
-  padding: 200;
+  padding: 200px; /* Add appropriate units, e.g., pixels */
   margin: 0;
-  background-color: black; 
+  background-color: #000;
   font-family: 'Gluten', cursive;
   font-style: normal;
   font-weight: 300;
@@ -10,6 +10,7 @@ body {
   text-align: center;
   justify-content: center;
 }
+
 
 #sketch-container {
   text-align: center;
@@ -32,7 +33,7 @@ main {
   flex:1;
   padding:20px;
   height:100vh;
-  background-color: black;
+  background-color: #000;
 }
 
 h1 {
@@ -83,12 +84,12 @@ h3 {
 }
 
 .container p {
-  font-size:18px;
-  line-height:1.8;
-  margin:0 20;
-  text-align:center;
-  float:center;
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 0 20px;
+  text-align: center; /* Use text-align instead of float */
 }
+
 .container img {
   margin:0 10px;
 }
