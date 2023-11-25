@@ -53,17 +53,6 @@ h3 {
   font-size: 2em;    
 }
 
-
-figure.smallphoto{
-  margin: 10 20 10 0;
-  width:40%;
-  float:left;
-}
-
-figure.smallphoto img{
-  width:100%;
-}
-
 .p5-container {
   position: absolute;
   top: 50%;
@@ -83,6 +72,13 @@ figure.smallphoto img{
   display: flex;
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
+  text-align: center;
+}
+
+.imagecontainer img {
+  width: 100%; /* Make sure the images take the full width of their container */
+  display: block; /* Remove any extra spacing below the images */
+  margin: 0 auto; /* Center the images horizontally */
 }
 
 .container p {
@@ -135,15 +131,3 @@ figure.smallphoto img{
   margin-bottom: 20px; 
   box-sizing: border-box; 
 }
-
-.image-container {
-  display: flex;
-  margin:10px;
-}
-
-.image-container img {
-  width: 45%;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
