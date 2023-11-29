@@ -89,7 +89,7 @@ function drawCircles(dataTable, hspacing, vspacing, startX, startY) {
     textSize(16);
     text(year, x, y);
     fill(255)
-    circle(x+r, y-r, (sqrt(100))*8);
+    circle =  circle(x+r, y-r, (sqrt(100))*8);
 
     fill(248,249,171)
     triangle(x, y-60, x+10, y-80, x-10 , y-80);
@@ -108,7 +108,7 @@ function drawCircles(dataTable, hspacing, vspacing, startX, startY) {
   }
 }
 
-function mouseClicked() {
+function circle.mouseClicked() {
   let year = tableC.getRow(hoveredCircleIndex).getString("year");
   console.log(year);
   }

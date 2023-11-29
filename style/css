@@ -1,18 +1,19 @@
 body {
-  padding: 200px; /* Add appropriate units, e.g., pixels */
-  margin: 0;
+  padding: 20px; /* Add appropriate units, e.g., pixels */
+  margin: 20px;
   background-color: #000;
-  font-family: 'Gluten', cursive;
+  font-family: 'Gluten', sans-serif;
   font-style: normal;
+  color:white;
   font-weight: 300;
   display: flex;
   align-items: top;
-  text-align: center;
+  text-align: left;
   justify-content: center;
 }
 
 
-#sketch-container {
+.sketch-container {
   text-align: center;
 }
 
@@ -20,14 +21,14 @@ canvas {
   border: 1px solid #000; /* Optional: Add a border to the canvas */
 }
 
-.sticky-header {
+/* .sticky-header {
   background-color: #000;
   color: #fff;
   padding: 20px;
   width: 30%; /* Adjust as needed */
-  position: sticky;
+  /* position: sticky;
   top: 0;
-}
+} */ */
 
 main {
   flex:1;
@@ -36,12 +37,25 @@ main {
   background-color: #000;
 }
 
-h1 {
-  margin-bottom: 10px;
-  margin-left: 75px;
+.container {
+  display: flex;
+  flex-direction: column; /* Ensure elements are stacked vertically */
+  align-items: center;
   text-align: center;
-  font-style: normal;
-  font-size: 70px;
+}
+
+h1 {
+  margin: 40px 10px; /* Remove default margin for <h1> */
+  color: white;
+  font-size:100px;
+}
+
+.container p {
+  margin: 0 80px; /* Remove default margin for <p> */
+  color: white;
+  font-size: 24px; /* Adjust font size as needed */
+  line-height: 1.6; /* Adjust line height as needed */
+  text-align: left; /* Use text-align instead of float */
 }
 
 h2 {
@@ -49,6 +63,7 @@ h2 {
   font-style: normal;
   font-size: 3em;
 }
+
 h3 {
   text-align: center;
   font-style: normal;
@@ -65,10 +80,6 @@ h3 {
   align-items: center;
 }
 
-.container {
-  display:flex;
-}
-
 .imagecontainer {
   margin: 50px;
   display: flex;
@@ -81,13 +92,6 @@ h3 {
   width: 100%; /* Make sure the images take the full width of their container */
   display: block; /* Remove any extra spacing below the images */
   margin: 0 auto; /* Center the images horizontally */
-}
-
-.container p {
-  font-size: 18px;
-  line-height: 1.8;
-  margin: 0 20px;
-  text-align: center; /* Use text-align instead of float */
 }
 
 .container img {
