@@ -55,7 +55,7 @@ function draw() {
         let households = parseInt(table.getRow(hoveredCircleIndex).getString("Households"));
         let income = parseFloat(table.getRow(hoveredCircleIndex).getString("Median income"));        
         let formattedNumber = income.toLocaleString();
-        fill(255, 0, 0);
+        fill('#B96D40');
         textStyle(BOLD);
 
         // Adjusted the x-coordinate to place the text to the right of the circle
