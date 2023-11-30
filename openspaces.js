@@ -27,7 +27,7 @@ function draw() {
 
   let hspacing = 150;
   let vspacing = 70;
-  let x = 20;
+  let x = 50;
   let y = 500;
 
   for (let i = 0; i < table.getRowCount(); i++) {
@@ -77,12 +77,12 @@ function draw() {
 
     x += hspacing;
     if (x > width) {
-      x = 20;
+      x = 50;
       y += vspacing;
     }
   }
 
-  x = 20;
+  x = 40;
   y = 50;
 
   fill(255);
