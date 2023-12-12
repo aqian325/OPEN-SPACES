@@ -24,10 +24,11 @@ body {
 .sticky-header {
   /* background-color: #000; */
   color: #fff;
-  padding: 100px;
+  padding: 200px;
   width: 20%;
   position: fixed;
-  top: 10;
+  top: 10px; /* Add 'px' for top property */
+  left: 0;   /* Set the left property to 0 to make it go to the left */
 }
 
 /* main {
@@ -54,8 +55,8 @@ body {
 
 
 .sticky-header h1 {
-  text-align: right;
-  margin: 0 220px;
+  text-align: left;
+  margin: 0 80px;
   color: white;
   font-size: 100px;
   position: fixed;

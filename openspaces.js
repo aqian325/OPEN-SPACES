@@ -21,9 +21,9 @@ function setup() {
 function draw() {
   background(0);
   noStroke();
-  let hspacing = width / 15;
-  let vspacing = height / 100;
-  let x = width / 3;
+  let hspacing = 200;
+  let vspacing = 200;
+  let x = windowWidth / 3;
   let y = windowHeight;  // Adjusted starting y-coordinate for circles
 
   textFont('GillSans');
@@ -62,6 +62,7 @@ function draw() {
         text(round(acreage, 2) + " acres of green space", width / 7.5, y + 50);
         text(households + " households", width / 7.5, y + 100);
         text("median income per household $" + formattedNumber, width / 7.5, y + 150);
+        
       }
     } else {
       fill(cc);
@@ -71,7 +72,7 @@ function draw() {
     circle(x, y, circleRadius);
 
     x += hspacing;
-    if (x > width) {
+    if (x > width-width/8) {
       x = width / 3;
       y += vspacing;
     }
@@ -81,7 +82,20 @@ function draw() {
 
 function mouseClicked() {
   if (hoveredCircleIndex !== -1) {
-    let name1 = table.getRow(hoveredCircleIndex).getString("Town");
-    console.log(name1);
+    let name2 = table.getRow(hoveredCircleIndex).getString("Town");
+    clickedCircleIndex = hoveredCircleIndex;
+    console.log(name2);
+
+    if (!showTown) {
+      // Toggle the value of displayInfo when a circle is clicked
+      showTown = true;
+    } else {
+      // If already displaying information, reset and close the information
+      showTown = false;
+      clickedCircleIndex = -1;
+    }
+
+    // Optional: Add more actions or logic based on the clicked circle
+    console.log(name2);
   }
 }
