@@ -11,17 +11,61 @@
 </head>
 
 <body>
-  <div class='container'>
-    <br><br><br><br><br><br>
-    <h1> the cost of <br>open space</h1>
-    <br><br><br><br>
-    <p>
-      I grew up in Shanghai, which (until recently) was known as a concrete jungle with mean taxi drivers (they can actually be quite kind and extremely funny) and horrible air quality. In middle school, recess time and gym classes were often cancelled on days where the AQI score was deemed unsafe for outdoor activity. Access to outdoor space is a luxury — that is a fact that I am cognizant of perhaps more intimately than most. 
-      <br><br>
-      My project explores the acreages of open space in all 351 towns in the state of Massachusetts. Median income and population for each town in this visualization provide crucial context for understanding this data.
-      <br><br><br>
-      <b>Each circle represents one of 351 towns in Massachuetts. Hover over each circle to learn more about them. </b>
-    </p>
+  <div class="parallax-container">
+    <div class="sticky-header">
+      <h1> the cost of <br>open space</h1>
+    </div>
+
+    <!-- p5.js Sketch -->
+    <script src="openspaces.js"></script>
+
+    <!-- Content Container -->
+    <div class="container" id="textContainer">
+      <br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br>      <br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br>
+
+      <p>
+        I grew up in Shanghai, which (until recently) was known as a concrete jungle with mean taxi drivers (they can
+        actually be quite kind and extremely funny) and horrible air quality.
+        In middle school, recess time and gym classes were often cancelled on days where the AQI score was deemed unsafe
+        for outdoor activity.
+        Access to outdoor space is a luxury — that is a fact that I am cognizant of perhaps more intimately than most.
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+
+        My project explores the acreages of open space in all 351 towns in the state of Massachusetts. Median income and
+        population for each town in this visualization provide crucial context for understanding this data.
+        <br><br><br><br><br><br><br><br>      <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+
+        <b>Each circle represents one of 351 towns in Massachusetts. Hover over each circle to learn more about them. </b>
+        <br><br><br><br><br><br><br><br>      <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+
+      </p>
+    </div>
+    <!-- Opaque Overlay -->
+    <div class="opaque-overlay" id="overlay"></div>
   </div>
+
+  <!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const parallaxSections = document.querySelectorAll('.parallax-section');
+
+      window.addEventListener('scroll', function () {
+        parallaxSections.forEach(function (section, index) {
+          const scrollPosition = window.scrollY;
+          const yPos = -scrollPosition / (index + 1);
+          const coords = `50% ${yPos}px`;
+
+          section.style.backgroundPosition = coords;
+        });
+      });
+    });
+  </script> -->
 </body>
+
 </html>

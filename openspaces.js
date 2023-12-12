@@ -2,33 +2,31 @@ let table;
 let hoveredCircleIndex = -1;
 let circles = []; // Declare circles as an array
 let showTown = false;
+// let GillSans;
+let Gluten;
 
 function preload() {
   table = loadTable("data/open_spaces_grouped.csv", "header");
   console.log(table);
+  Gluten = loadFont("fonts/Gluten-Black.ttf");
 }
 
 function setup() {
-  createCanvas(1800, 2000);
-  background(32, 32, 32);
-  frameRate(10);
+  createCanvas(windowWidth, windowHeight*4);
+  background(0, 0, 0);
+  frameRate(30);
 
 }
 
 function draw() {
   background(0);
   noStroke();
+  let hspacing = width / 15;
+  let vspacing = height / 100;
+  let x = width / 3;
+  let y = windowHeight;  // Adjusted starting y-coordinate for circles
 
-  // // Add the header
-  // fill(255);
-  // textSize(24); // Adjust the font size as needed
-  // textAlign(CENTER);
-  // text("Open Spaces in Massachusetts", width / 2, 30);
-
-  let hspacing = 150;
-  let vspacing = 70;
-  let x = 50;
-  let y = 500;
+  textFont('GillSans');
 
   for (let i = 0; i < table.getRowCount(); i++) {
     let row = table.getRow(i);
@@ -46,7 +44,6 @@ function draw() {
     let d = dist(mouseX, mouseY, x, y);
 
     if (d < circleRadius / 2) {
-      fill(255, 0, 0);
       hoveredCircleIndex = i;
 
       if (hoveredCircleIndex !== -1) {
@@ -57,16 +54,14 @@ function draw() {
         let formattedNumber = income.toLocaleString();
         fill('#B96D40');
         textStyle(BOLD);
+        text(name1, width / 8, y);  // Set y-coordinate based on the circle's y
 
         // Adjusted the x-coordinate to place the text to the right of the circle
-        // text(name1, x + circleRadius, y); //text next to circles
-        textSize(40);
-        // fill(124, 252, 0);
-        text(name1, 40, 190);
         textSize(24);
-        text(round(acreage,2) + " acres of green space", 40, 250);
-        text(households + " households", 40, 300);
-        text("median income per household $"+formattedNumber, 40, 350);
+        textStyle(NORMAL);
+        text(round(acreage, 2) + " acres of green space", width / 7.5, y + 50);
+        text(households + " households", width / 7.5, y + 100);
+        text("median income per household $" + formattedNumber, width / 7.5, y + 150);
       }
     } else {
       fill(cc);
@@ -77,17 +72,12 @@ function draw() {
 
     x += hspacing;
     if (x > width) {
-      x = 50;
+      x = width / 3;
       y += vspacing;
     }
   }
-
-  x = 40;
-  y = 50;
-
-  fill(255);
-  text(frameCount, 20, height - 20);
 }
+
 
 function mouseClicked() {
   if (hoveredCircleIndex !== -1) {
