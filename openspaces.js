@@ -28,7 +28,7 @@ function draw() {
   noStroke();
   let hspacing = 150;
   let vspacing = 150;
-  let x = windowWidth / 3;
+  let x = windowWidth / 3.5;
   let y = windowHeight;  // Adjusted starting y-coordinate for circles
 
   textFont('GillSans');
