@@ -28,8 +28,8 @@ function draw() {
   noStroke();
   let hspacing = 150;
   let vspacing = 150;
-  let x = windowWidth / 3.5;
-  let y = windowHeight;  // Adjusted starting y-coordinate for circles
+  let x = windowWidth / 2.8;
+  let y = windowHeight-400;  // Adjusted starting y-coordinate for circles
 
   textFont('GillSans');
   text("Thanks for exploring open spaces in Massachusetts with me.",width-1200,height-150);
@@ -99,7 +99,7 @@ function draw() {
 
     x += hspacing;
     if (x > width-width/8) {
-      x = width / 3;
+      x = width / 2.8;
       y += vspacing;
     }
   }
