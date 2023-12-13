@@ -77,11 +77,12 @@ body {
 .container p::before {
   content: '';
   position: absolute;
-  top: -20px;
-  left: -20px;
+  top: -25px;
+  left: -25px;
   width: calc(100% + 40px);
   height: calc(100% + 40px);
   background: rgba(32, 32, 32, 0.9); /* Adjust the color and opacity as needed */
+  border-radius: 40px; /* Adjust the border-radius value for rounded corners */
   z-index: -1; /* Place the overlay behind the text */
 }
 

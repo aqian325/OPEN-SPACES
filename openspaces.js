@@ -126,5 +126,5 @@ function mouseClicked() {
     }
   }
   // Resize the canvas based on the maximum y-coordinate
-  resizeCanvas(windowWidth, maxVerticalPosition + 50);
+  resizeCanvas(windowWidth, maxVerticalPosition + 500);
 }
