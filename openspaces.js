@@ -21,14 +21,13 @@ function setup() {
   createCanvas(windowWidth-40, windowHeight*7);
   background(0, 0, 0);
   // frameRate(30);
-
 }
 
 function draw() {
   background(0);
   noStroke();
-  let hspacing = 200;
-  let vspacing = 200;
+  let hspacing = 150;
+  let vspacing = 150;
   let x = windowWidth / 3;
   let y = windowHeight;  // Adjusted starting y-coordinate for circles
 
@@ -105,26 +104,31 @@ function draw() {
     }
   }
 
+  // // Resize the canvas based on the maximum y-coordinate
+  // resizeCanvas(windowWidth, maxVerticalPosition + 500);
 
   // If no circle is hovered or clicked, hide the information
   if (hoveredCircleIndex === -1 && clickedCircleIndex === -1) {
     showTown = false;
+    
   }
 
 }
+
 function mouseClicked() {
   // Check if the mouse is over any circle
   for (let i = 0; i < table.getRowCount(); i++) {
     let row = table.getRow(i);
     let acres = row.getNum("GIS_ACRES");
     let circleRadius = sqrt(acres);
-    let d = dist(mouseX, mouseY, x, y);
+    let circleY = windowHeight + i * vspacing; // Calculate the y-coordinate of the circle
+
+    let d = dist(mouseX, mouseY, x, circleY);
 
     if (d < circleRadius / 2) {
       clickedCircleIndex = i;
       break; // Exit the loop after finding the clicked circle
     }
   }
-  // Resize the canvas based on the maximum y-coordinate
-  resizeCanvas(windowWidth, maxVerticalPosition + 500);
+
 }
