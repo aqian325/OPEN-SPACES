@@ -42,6 +42,8 @@ function draw() {
     let name = row.getString("Town");
     let circleRadius = sqrt(acres);
 
+    maxVerticalPosition = max(maxVerticalPosition, y + circleRadius);
+
     fill(255);
     const green = color(124, 252, 0);
     const gray = color(32, 32, 32);
