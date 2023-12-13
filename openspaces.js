@@ -6,6 +6,8 @@ let showTown = false;
 // let GillSans;
 let Gluten;
 let Glutenthin;
+let maxVerticalPosition = 0; // Variable to store the maximum y-coordinate
+
 
 
 function preload() {
@@ -16,7 +18,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight*7);
+  createCanvas(windowWidth-40, windowHeight*7);
   background(0, 0, 0);
   // frameRate(30);
 
@@ -121,4 +123,6 @@ function mouseClicked() {
       break; // Exit the loop after finding the clicked circle
     }
   }
+  // Resize the canvas based on the maximum y-coordinate
+  resizeCanvas(windowWidth, maxVerticalPosition + 50);
 }
