@@ -18,7 +18,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth-40, windowHeight*7);
+  createCanvas(windowWidth-40, windowHeight*4);
   background(0, 0, 0);
   // frameRate(30);
 }
@@ -104,8 +104,8 @@ function draw() {
     }
   }
 
-  // // Resize the canvas based on the maximum y-coordinate
-  // resizeCanvas(windowWidth, maxVerticalPosition + 500);
+// // Resize the canvas based on the maximum y-coordinate
+// resizeCanvas(windowWidth, maxVerticalPosition + 500);
 
   // If no circle is hovered or clicked, hide the information
   if (hoveredCircleIndex === -1 && clickedCircleIndex === -1) {
