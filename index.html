@@ -34,14 +34,14 @@
       var popupBox = document.createElement('div');
       popupBox.className = 'popup-box';
       popupBox.innerHTML = `
-        <h2>Welcome to "Open Spaces"</h2>
-        <p> I grew up in Shanghai, which (until recently) was known as a concrete jungle with horrendous
+        <h2>WELCOME to an exploration <br>of OPEN SPACES in MASSACHUSETTS</h2>
+        <p> Hi! I'm <a href="https://aprilq.info" target="_blank">April</a>. I grew up in Shanghai, which was known in the late 2010's as a concrete jungle with horrendous
         traffic and equally terrible air quality. In middle school, recess time and gym classes were often cancelled on days where the AQI score was deemed unsafe
-        for outdoor activity. Access to outdoor space is a luxury — a fact that I am cognizant of perhaps more intimately than many.  <br><br>      
-        My project explores the acreages of open space in all 351 towns in the state of Massachusetts. Median income and
-        population for each town in this visualization provide crucial context for understanding this data. <br><br>
-        Each circle represents one of 351 towns in Massachusetts. Circle size and color intensity are directly proportional to the total acreage 
-        of greenspace in each town. <br><br> Hover over each circle to learn more about them.</p>
+        for outdoor activity. Access to open spaces outdoors is a luxury — a fact that I am cognizant of perhaps more intimately than many.  <br><br>      
+        My project delves into the open spaces across all 351 towns in Massachusetts. According to the US Forest Service's official definition, open spaces can encompass forests, grasslands, farms, rivers, and parks. These spaces are vital for our mental and physical well-being, and they provide critical support to agriculture, forestry, and local ecosystems<sup><a href="https://www.fs.usda.gov/science-technology/loss-of-open-space" target="_blank">[1]</a></sup>.
+        I obtained this data from the official MassGIS database<sup><a href="https://www.mass.gov/info-details/massgis-data-protected-and-recreational-openspace" target="_blank">[2]</a></sup>. 
+ <br><br> Median income and population data from the American Community Survey offer insights into accessibility of open spaces across different towns. Each circle in the visualization represents a town, with circle size and color intensity reflecting the total acreage of greenspace.  
+        <br><br> Explore further by clicking on each circle.</p><br>
         <button onclick="closePopup()">click to explore!</button>
       `;
       document.body.appendChild(popupBox);
@@ -55,6 +55,11 @@
         popupBox.parentNode.removeChild(popupBox);
       }
     }
+
+      // Open the popup box when the page loads
+    window.onload = function() {
+      openPopup();
+    };
   </script>
 </body>
 </html>
