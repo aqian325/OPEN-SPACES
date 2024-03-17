@@ -18,7 +18,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth-40, windowHeight*6);
+  createCanvas(1920, 9700);
   background(0, 0, 0);
   // frameRate(30);
 }
@@ -28,11 +28,14 @@ function draw() {
   noStroke();
   let hspacing = 150;
   let vspacing = 150;
-  let x = windowWidth / 2.8;
-  let y = windowHeight-400;  // Adjusted starting y-coordinate for circles
+  let x = 920;
+  let y = 500;  // Adjusted starting y-coordinate for circles
 
-  textFont('GillSans');
-  text("Thanks for exploring open spaces in Massachusetts with me.",width-1200,height-150);
+  textFont('Gluten');
+  text("Thanks for exploring open spaces in Massachusetts with me.",880,9400);
+  text("- april",1600,9450);
+  text("dec 2023", 1625, 9500);
+
 
   for (let i = 0; i < table.getRowCount(); i++) {
     let row = table.getRow(i);
@@ -66,16 +69,21 @@ function draw() {
         textFont('GillSans');
         textStyle(BOLD);
         textSize(32);
-        text(name1, width / 8, y);  // Set y-coordinate based on the circle's y
+        text(name1, 250, y);  // Set y-coordinate based on the circle's y
 
         // Adjusted the x-coordinate to place the text to the right of the circle
         textSize(24);
         textStyle(NORMAL);
-        text(round(acreage, 2) + " acres of green space", width / 7.5, y + 50);
-        text(households + " households", width / 7.5, y + 100);
-        text("median income per household $" + formattedNumber, width / 7.5, y + 150);
+        // text(round(acreage, 2) + " acres of green space", 275, y + 50);
+        // text(households + " households", 275, y + 100);
+        textSize(48);
+        text(round(acreage/households,2), 275,y+50)
+        text("$" + formattedNumber, 275, y + 175);
+        textSize(24);
+        text("acres of green space per household", 275,y+75)
+        text("median income per household", 275, y + 200);
         fill(255);
-        text("click on another circle to compare!", width/7.5, y+300);
+        text("click on another circle to compare!", 275, y+300);
         fill('#B96D40');
         
         if (mouseIsPressed) {
@@ -89,7 +97,7 @@ function draw() {
 
     // Draw the circle
     circle(x, y, circleRadius);
-    if (i % 40 === 7) {
+    if (i % 40 === 5) {
       fill(255);
       textSize(28);
       textFont(Glutenthin);
@@ -98,8 +106,8 @@ function draw() {
 
 
     x += hspacing;
-    if (x > width-width/8) {
-      x = width / 2.8;
+    if (x > 1800) {
+      x = 920;
       y += vspacing;
     }
   }

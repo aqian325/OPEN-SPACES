@@ -8,73 +8,53 @@
   <title>open spaces</title>
   <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
   <script language="javascript" type="text/javascript" src="openspaces.js"></script>
+
 </head>
 
 <body>
   <div class="sticky-header">
     <h1> the cost of <br>open space</h1>
+    <p> circle size and color intensity are directly proportional <br>to the total acres of open space in each town. </p>
+    <br><br><br><br><br><br><br><br>    <br><br><br><br><br><br><br><br>
+    <button onclick="openPopup()">why open spaces?</button>
   </div>
 
   <div class="parallax-container">
-
     <!-- Content Container -->
-    <div class="container" id="textContainer">
-      <p class = "exclude-box">
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-      </p>
-      <p>
-        I grew up in Shanghai, which (until recently) was known as a concrete jungle with horrendous
-       traffic and equally terrible air quality.
-        In middle school, recess time and gym classes were often cancelled on days where the AQI score was deemed unsafe
-        for outdoor activity.
-        Access to outdoor space is a luxury — a fact that I am cognizant of perhaps more intimately than many.
-      </p>
-      <p class = "exclude-box">
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-      </p>
-      <p>
-        My project explores the acreages of open space in all 351 towns in the state of Massachusetts. Median income and
-        population for each town in this visualization provide crucial context for understanding this data.
-      </p>
-      <p class = "exclude-box">
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-      </p>
-      <p>
-        <b>Each circle represents one of 351 towns in Massachusetts. Hover over each circle to learn more about them. </b>
-      </p>
-      <p class = "exclude-box">
-
-        <br><br><br><br>
-        April Qian<br><br></p>
-          <!-- p5.js Sketch -->
-    <script src="openspaces.js"></script>
-
-    </div>
+  
     <!-- Opaque Overlay -->
     <div class="opaque-overlay" id="overlay"></div>
   </div>
 
-  <!-- <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const parallaxSections = document.querySelectorAll('.parallax-section');
+  <!-- JavaScript for the popup box -->
+  <script>
+    function openPopup() {
+      document.getElementById('overlay').style.display = 'block';
+      // Create and append the popup box
+      var popupBox = document.createElement('div');
+      popupBox.className = 'popup-box';
+      popupBox.innerHTML = `
+        <h2>Welcome to "Open Spaces"</h2>
+        <p> I grew up in Shanghai, which (until recently) was known as a concrete jungle with horrendous
+        traffic and equally terrible air quality. In middle school, recess time and gym classes were often cancelled on days where the AQI score was deemed unsafe
+        for outdoor activity. Access to outdoor space is a luxury — a fact that I am cognizant of perhaps more intimately than many.  <br><br>      
+        My project explores the acreages of open space in all 351 towns in the state of Massachusetts. Median income and
+        population for each town in this visualization provide crucial context for understanding this data. <br><br>
+        Each circle represents one of 351 towns in Massachusetts. Circle size and color intensity are directly proportional to the total acreage 
+        of greenspace in each town. <br><br> Hover over each circle to learn more about them.</p>
+        <button onclick="closePopup()">click to explore!</button>
+      `;
+      document.body.appendChild(popupBox);
+    }
 
-      window.addEventListener('scroll', function () {
-        parallaxSections.forEach(function (section, index) {
-          const scrollPosition = window.scrollY;
-          const yPos = -scrollPosition / (index + 1);
-          const coords = `50% ${yPos}px`;
-
-          section.style.backgroundPosition = coords;
-        });
-      });
-    });
-  </script> -->
+    function closePopup() {
+      document.getElementById('overlay').style.display = 'none';
+      // Remove the popup box
+      var popupBox = document.querySelector('.popup-box');
+      if (popupBox) {
+        popupBox.parentNode.removeChild(popupBox);
+      }
+    }
+  </script>
 </body>
-
 </html>
