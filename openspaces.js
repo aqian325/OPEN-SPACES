@@ -69,7 +69,7 @@ function draw() {
         textFont('GillSans');
         textStyle(BOLD);
         textSize(32);
-        text(name1, 250, y);  // Set y-coordinate based on the circle's y
+        text(name1, width*0.12, y);  // Set y-coordinate based on the circle's y
 
         // Adjusted the x-coordinate to place the text to the right of the circle
         textSize(24);
@@ -77,13 +77,13 @@ function draw() {
         // text(round(acreage, 2) + " acres of green space", 275, y + 50);
         // text(households + " households", 275, y + 100);
         textSize(48);
-        text(round(acreage/households,2), 275,y+50)
-        text("$" + formattedNumber, 275, y + 175);
+        text(round(acreage/households,2), width*0.15,y+50)
+        text("$" + formattedNumber, width*0.15, y + 175);
         textSize(24);
-        text("acres of green space per household", 275,y+75)
-        text("median income per household", 275, y + 200);
+        text("acres of green space per household", width*0.15,y+75)
+        text("median income per household", width*0.15, y + 200);
         fill(255);
-        text("click on another circle to compare!", 275, y+300);
+        text("click on another circle to compare!", width*0.15, y+300);
         fill('#B96D40');
         
         if (mouseIsPressed) {
